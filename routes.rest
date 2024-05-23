@@ -1,0 +1,34 @@
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "root@gmail.com",
+  "password": "secret123"
+}
+
+###
+
+POST http://localhost:8080/operations/execute
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb290QGdtYWlsLmNvbSIsImV4cCI6MTcxNjQyMzc5Nn0.iZgCnXeow8E_IBzhHgYjMQ7K-_AmgP6Ubjskv2F9DKI
+
+{
+  "operationType": "subtraction",
+  "number1": 10,
+  "number2": 5
+}
+
+###
+GET http://localhost:8080/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpbC5jb20iLCJleHAiOjE3MTY0MDEwNzl9.JdIF1SzlwzEPQfgqAsiqjsl0LZ1V8x3Vdxe_tjgFbRw
+
+###
+GET http://localhost:8080/records
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpbC5jb20iLCJleHAiOjE3MTY0MDE3MjN9.n0jBwBUIFGFT8rgDZY-bXV97D_ip2omjbX7j-2upGwg
+
+###
+POST http://localhost:8080/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpbC5jb20ifQ.etHe0_4Y1lTLreqjmWJtua9NagdPaTBwBcrYb-U0bLs
+
+
