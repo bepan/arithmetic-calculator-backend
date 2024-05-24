@@ -27,13 +27,14 @@ public class PitsChallengeApplication implements CommandLineRunner {
     // Seed root user
     if (this.userRepository.findByUsername("root@gmail.com") == null) {
       this.userRepository.save(new User("root@gmail.com", "secret123", "active", 100));
+      
     }
 
     // Seed basic operations
     Arrays.asList(OperationType.values()).stream().forEach(operation -> {
       Random random = new Random();
       if (this.operationRepository.findByType(operation.name().toLowerCase()) == null) {
-        this.operationRepository.save(new Operation(operation.name().toLowerCase(), random.nextInt(50 - 10 + 1) + 10));
+        this.operationRepository.save(new Operation(operation.name().toLowerCase(), random.nextInt(20) + 1));
       }
     });
 

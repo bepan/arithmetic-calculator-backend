@@ -10,21 +10,21 @@ Content-Type: application/json
 
 POST http://localhost:8080/operations/execute
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb290QGdtYWlsLmNvbSIsImV4cCI6MTcxNjQyMzc5Nn0.iZgCnXeow8E_IBzhHgYjMQ7K-_AmgP6Ubjskv2F9DKI
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb290QGdtYWlsLmNvbSIsImV4cCI6MTcxNjUwODk1N30.gt3UmQceWgbkgUmIn6HvJceXCDAKQ5_gJVyhHdg8y8o
 
 {
-  "operationType": "subtraction",
+  "operationType": "square_root",
   "number1": 10,
   "number2": 5
 }
 
 ###
 GET http://localhost:8080/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpbC5jb20iLCJleHAiOjE3MTY0MDEwNzl9.JdIF1SzlwzEPQfgqAsiqjsl0LZ1V8x3Vdxe_tjgFbRw
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb290QGdtYWlsLmNvbSIsImV4cCI6MTcxNjUwODk1N30.gt3UmQceWgbkgUmIn6HvJceXCDAKQ5_gJVyhHdg8y8o
 
 ###
-GET http://localhost:8080/records
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpbC5jb20iLCJleHAiOjE3MTY0MDE3MjN9.n0jBwBUIFGFT8rgDZY-bXV97D_ip2omjbX7j-2upGwg
+GET http://localhost:8080/records/mine
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb290QGdtYWlsLmNvbSIsImV4cCI6MTcxNjUwOTg1Mn0.mrY5WkHgarvuVO8hQ6AODWSDZ2s-0T8q3G1nq0lahEs
 
 ###
 POST http://localhost:8080/logout

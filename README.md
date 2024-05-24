@@ -2,11 +2,12 @@
 This Spring boot project defines rest endpoints for authentication, executing operations and user records.
 
 ## Running the project locally
-There are 2 options, using **docker** or manual installation of project deps.
 
-* For docker, install docker in your computer and at the project root folder run `docker-compose up` command and thats it.
+1. Install Docker and jdk17 or openJdk17 and set your `JAVA_HOME` env variable in your machine.
 
-* For manual running, please install jdk17 or openjdk17 and mysql on your computer, then start mysql server. At the project root folder execute `./mvnw spring-boot:run`. Remove `./` at the beginning of the command if you are on windows cmd. Make sure to update `spring.datasource.url` prop in `application.properties` file accordingly with your mysql host, port and database name, right now it is configured to work for docker primarly.
+2. Start mysql by running `docker-compose up` at the project root folder. Alterantively you could download your own mysql server in your computer, but make sure it is running on port `3306` and the database name is `pitsdb`.
+
+3. Start spring project by executing `./mvnw spring-boot:run` command at the root folder. Remove `./` at the beginning of the command if you are on windows cmd. 
 
 **The application will seed the database with a default root user and the basic operations a user can execute.**
 

@@ -32,7 +32,7 @@ public class AuthenticationFilter implements Filter {
   private HandlerExceptionResolver resolver;
 
   @Autowired
-  AuthenticationService authService;
+  private AuthenticationService authService;
 
   private List<String> notApplicableUris = Arrays.asList("/login");
 
@@ -41,6 +41,7 @@ public class AuthenticationFilter implements Filter {
   throws IOException, ServletException
   {
     try {
+      
       HttpServletRequest httpReq = (HttpServletRequest) req;
       String authorization = httpReq.getHeader("Authorization");
 

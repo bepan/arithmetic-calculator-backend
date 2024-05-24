@@ -10,7 +10,6 @@ public class AuthenticationService {
 
   private List<String> manuallyExpiredTokens = new ArrayList<>();
 
-
   public void expireToken(String jws) {
     this.manuallyExpiredTokens.add(jws);
   }
