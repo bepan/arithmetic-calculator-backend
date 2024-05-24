@@ -18,7 +18,7 @@ Content-Type: application/json
 
 {
   "username": "root@gmail.com",
-  "password": "secret123"
+  "password": "your-secret-key-defined-in-.ENV"
 }
 ```
 
@@ -35,9 +35,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpb
 }
 ```
 
-The file `./routes.rest` has more examples of rest endpoints we can execute. This project is still in progress.
 
 ## Missing functionality
 
 * More Unit tests
-* Pagination, Filtering and Sorting for records.

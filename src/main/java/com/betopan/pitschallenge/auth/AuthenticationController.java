@@ -10,6 +10,7 @@ import com.betopan.pitschallenge.util.jwt.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,8 @@ public class AuthenticationController {
   private JwtService jwtService;
   @Autowired
   private AuthenticationService authService;
+  @Autowired
+  private PasswordEncoder passwordEncoder;
 
   @PostMapping("/login")
   public @ResponseBody Object login(
@@ -32,7 +35,7 @@ public class AuthenticationController {
     String password = requestBody.getPassword();
     User foundUser = this.userRepository.findByUsername(username);
 
-    if (foundUser == null || !foundUser.getPassword().equals(password)) {
+    if (foundUser == null || !this.passwordEncoder.matches(password, foundUser.getPassword())) {
       throw new InvalidCredentialsException();
     }
 

@@ -12,6 +12,7 @@ public class SortByServiceImpl implements SortByService {
   public Sort parse(String value) {
     String[] sortByOptions = value.split(",");
     String[] splitFirstOption = sortByOptions[0].split(":");
+    
     Sort sortingOptions = splitFirstOption[1] == "asc"
       ? Sort.by(splitFirstOption[0]).ascending()
       : Sort.by(splitFirstOption[0]).descending();

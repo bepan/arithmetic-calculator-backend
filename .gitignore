@@ -3,3 +3,6 @@ target/
 
 ### VS Code ###
 .vscode/
+
+.env
+routes.rest
