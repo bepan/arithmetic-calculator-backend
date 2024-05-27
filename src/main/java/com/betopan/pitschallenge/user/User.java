@@ -7,6 +7,7 @@ import com.betopan.pitschallenge.operation.Operation;
 import com.betopan.pitschallenge.record.Record;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,9 +31,11 @@ public class User {
   private String status;
   private double balance;
 
+
   @OneToMany(mappedBy = "user")
   @JsonIgnore
   private List<Record> operations = new ArrayList<>();
+
 
   public User() {
   }

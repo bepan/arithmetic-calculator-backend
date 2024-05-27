@@ -1,4 +1,4 @@
-package com.betopan.pitschallenge.util.jwt;
+package com.betopan.pitschallenge.auth.services;
 
 public interface JwtService {
 

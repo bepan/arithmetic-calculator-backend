@@ -1,4 +1,4 @@
-package com.betopan.pitschallenge.util.jwt;
+package com.betopan.pitschallenge.auth.services;
 
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -20,7 +20,7 @@ public class JwtServiceJJwtImpl implements JwtService {
   @Value("${security.jwt.secret-key}")
   private String secretKey;
 
-  @Value("${security.jwt.expiration}") // 5 minutes
+  @Value("${security.jwt.expiration}") // Defined in milliseconds
   private Long expirationInMillis;
 
   @Override

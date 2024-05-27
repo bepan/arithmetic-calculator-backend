@@ -2,8 +2,8 @@ package com.betopan.pitschallenge.util.arithmetic;
 
 import org.springframework.stereotype.Service;
 
+import com.betopan.pitschallenge.operation.OperationType;
 import com.betopan.pitschallenge.operation.dto.OperationExecutionRequestBody;
-import com.betopan.pitschallenge.operation.enums.OperationType;
 import com.betopan.pitschallenge.util.arithmetic.operation.Addition;
 import com.betopan.pitschallenge.util.arithmetic.operation.Division;
 import com.betopan.pitschallenge.util.arithmetic.operation.Multiplication;

@@ -3,14 +3,15 @@ package com.betopan.pitschallenge.auth;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.betopan.pitschallenge.auth.exceptions.InvalidCredentialsException;
+import com.betopan.pitschallenge.auth.services.JwtService;
 import com.betopan.pitschallenge.user.User;
 import com.betopan.pitschallenge.user.UserRepository;
-import com.betopan.pitschallenge.util.jwt.JwtService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 
+import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,17 +26,17 @@ public class AuthenticationController {
   @Autowired
   private AuthenticationService authService;
   @Autowired
-  private PasswordEncoder passwordEncoder;
+  private StringEncryptor encryptor;
 
   @PostMapping("/login")
   public @ResponseBody Object login(
-    @RequestBody LoginRequestDTO requestBody
+    @Valid @RequestBody LoginRequestDTO requestBody
   ) {
     String username = requestBody.getUsername();
     String password = requestBody.getPassword();
     User foundUser = this.userRepository.findByUsername(username);
 
-    if (foundUser == null || !this.passwordEncoder.matches(password, foundUser.getPassword())) {
+    if (foundUser == null || !this.encryptor.decrypt(foundUser.getPassword()).equals(password)) {
       throw new InvalidCredentialsException();
     }
 
@@ -60,7 +61,5 @@ public class AuthenticationController {
       public String message = "Your session has been successfully expired.";
     };
   }
-  
-
 
 }

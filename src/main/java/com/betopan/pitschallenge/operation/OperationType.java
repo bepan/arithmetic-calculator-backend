@@ -1,4 +1,4 @@
-package com.betopan.pitschallenge.operation.enums;
+package com.betopan.pitschallenge.operation;
 
 public enum OperationType {
   ADDITION,

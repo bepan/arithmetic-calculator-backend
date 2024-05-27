@@ -2,7 +2,7 @@ package com.betopan.pitschallenge.operation.dto;
 
 import java.math.BigDecimal;
 
-import com.betopan.pitschallenge.operation.enums.OperationType;
+import com.betopan.pitschallenge.operation.OperationType;
 import com.betopan.pitschallenge.util.annotation.validation.ValueOfEnum;
 
 import jakarta.validation.constraints.NotNull;

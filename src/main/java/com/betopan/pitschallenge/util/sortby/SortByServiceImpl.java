@@ -13,7 +13,7 @@ public class SortByServiceImpl implements SortByService {
     String[] sortByOptions = value.split(",");
     String[] splitFirstOption = sortByOptions[0].split(":");
     
-    Sort sortingOptions = splitFirstOption[1] == "asc"
+    Sort sortingOptions = splitFirstOption[1].equals("asc")
       ? Sort.by(splitFirstOption[0]).ascending()
       : Sort.by(splitFirstOption[0]).descending();
 
@@ -21,7 +21,7 @@ public class SortByServiceImpl implements SortByService {
 
     for(String option : restOfSortByOptions) {
       String[] splitOption = option.split(":");
-      sortingOptions = splitOption[1] == "asc" 
+      sortingOptions = splitOption[1].equals("asc") 
         ? sortingOptions.and(Sort.by(splitOption[0]).ascending()) 
         : sortingOptions.and(Sort.by(splitOption[0]).descending());
     }

@@ -19,7 +19,7 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import com.betopan.pitschallenge.auth.exceptions.InvalidJWTException;
 import com.betopan.pitschallenge.auth.exceptions.NoTokenProvidedException;
-import com.betopan.pitschallenge.util.jwt.JwtService; 
+import com.betopan.pitschallenge.auth.services.JwtService; 
 
 @Component
 public class AuthenticationFilter implements Filter {

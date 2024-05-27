@@ -11,6 +11,9 @@ This Spring boot project defines rest endpoints for authentication, executing op
 
 **The application will seed the database with a default root user and the basic operations a user can execute.**
 
+## API Documentation
+
+### Login endpoint
 To test if the api is working we can verify by login in with the default user and get our session token by doing this http request:
 ```
 POST http://localhost:8080/login
@@ -18,10 +21,11 @@ Content-Type: application/json
 
 {
   "username": "root@gmail.com",
-  "password": "your-secret-key-defined-in-.ENV"
+  "password": "your-secret-password-defined-in-dotenv-file"
 }
 ```
 
+### Operation Execution endpoint
 Then, we need to use that resulting token and add it to every request as an Authorization header like this:
 ```
 POST http://localhost:8080/operations/execute
@@ -29,13 +33,30 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpbC5jb20iLCJleHAiOjE3MTY0MjE2NTN9.yx6HCflHkQpiAbNkQOXdtavKT_RGhEUcKffnSRrk90c
 
 {
-  "operationType": "subtraction",
+  "operationType": "subtraction" | "addition" | "multiplication" | "random_string" | "division" | "square_root",
   "number1": 10,
   "number2": 5
 }
 ```
 
+### Getting Authenticated user records
+The endpoint accepts some query string options like pageNumber, pageSize, sortBy and searchInputQuery
 
-## Missing functionality
+```
+GET http://localhost:8080/records/mine?pageNumber={number}&pageSize{number}=&sortBy={date:asc}&searchInputQuery={string}
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpbC5jb20iLCJleHAiOjE3MTY0MjE2NTN9.yx6HCflHkQpiAbNkQOXdtavKT_RGhEUcKffnSRrk90c
+```
 
-* More Unit tests
+### Soft Delete a Record
+```
+DELETE http://localhost:8080/records/{recordId}
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpbC5jb20iLCJleHAiOjE3MTY0MjE2NTN9.yx6HCflHkQpiAbNkQOXdtavKT_RGhEUcKffnSRrk90c
+```
+
+### Logout Endpoint
+```
+POST http://localhost:8080/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGJlcnRvLmNyY3UxNUBnbWFpbC5jb20ifQ.etHe0_4Y1lTLreqjmWJtua9NagdPaTBwBcrYb-U0bLs
+```
+
+

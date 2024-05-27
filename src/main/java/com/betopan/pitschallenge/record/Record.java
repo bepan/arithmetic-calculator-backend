@@ -8,6 +8,7 @@ import com.betopan.pitschallenge.operation.Operation;
 import com.betopan.pitschallenge.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,10 +35,10 @@ public class Record {
   @JoinColumn(name = "operation_id", referencedColumnName = "id")
   private Operation operation;
 
-  private double amount;
+  private String amount;
 
   @Column(name = "user_balance")
-  private double userBalance;
+  private String userBalance;
 
   @Column(name = "operation_result")
   private String operationResult;
@@ -46,14 +47,17 @@ public class Record {
   @Column(updatable = false)
   private Date date;
 
+  @Column(name = "is_soft_deleted")
+  private boolean isSoftDeleted = false;
+
   public Record() {
   }
 
   public Record(User user, Operation operation, String operationResult) {
     this.user = user;
     this.operation = operation;
-    this.amount = operation.getCost();
-    this.userBalance = user.getBalance();
+    this.amount = String.valueOf(operation.getCost());
+    this.userBalance = String.valueOf(user.getBalance());
     this.operationResult = operationResult;
   }
 
@@ -81,19 +85,19 @@ public class Record {
     this.operation = operation;
   }
 
-  public double getAmount() {
+  public String getAmount() {
     return this.amount;
   }
 
-  public void setAmount(double amount) {
+  public void setAmount(String amount) {
     this.amount = amount;
   }
 
-  public double getUserBalance() {
+  public String getUserBalance() {
     return this.userBalance;
   }
 
-  public void setUserBalance(double userBalance) {
+  public void setUserBalance(String userBalance) {
     this.userBalance = userBalance;
   }
 
@@ -111,6 +115,14 @@ public class Record {
 
   public void setDate(Date date) {
     this.date = date;
+  }
+
+  public boolean getIsSoftDeleted() {
+    return this.isSoftDeleted;
+  }
+
+  public void setIsSoftDeleted(boolean isSoftDeleted) {
+    this.isSoftDeleted = isSoftDeleted;
   }
 
 }

@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.betopan.pitschallenge.operation.dto.Greeting;
 import com.betopan.pitschallenge.operation.dto.OperationExecutionRequestBody;
-import com.betopan.pitschallenge.operation.enums.OperationType;
 import com.betopan.pitschallenge.record.Record;
 import com.betopan.pitschallenge.record.RecordRepository;
 import com.betopan.pitschallenge.user.User;
